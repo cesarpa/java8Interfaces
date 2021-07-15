@@ -17,7 +17,7 @@ public class MainSteamAPI {
         values.forEach(i -> System.out.println(i));
 
         // lambda expression
-        Consumer<Integer> consumerInterface = (Integer i) -> System.out.println(i);
+        Consumer<Integer> consumerInterface = (i) -> System.out.println(i);
 
         values.forEach(consumerInterface);
 
