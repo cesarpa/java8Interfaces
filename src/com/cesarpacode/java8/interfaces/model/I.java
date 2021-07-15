@@ -1,4 +1,4 @@
-package com.cesarpacode.java8.model;
+package com.cesarpacode.java8.interfaces.model;
 
 public interface I {
     default void show() {

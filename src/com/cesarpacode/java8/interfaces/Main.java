@@ -1,7 +1,7 @@
-package com.cesarpacode.java8;
+package com.cesarpacode.java8.interfaces;
 
-import com.cesarpacode.java8.model.C;
-import com.cesarpacode.java8.model.I;
+import com.cesarpacode.java8.interfaces.model.C;
+import com.cesarpacode.java8.interfaces.model.I;
 
 public class Main  {
 
