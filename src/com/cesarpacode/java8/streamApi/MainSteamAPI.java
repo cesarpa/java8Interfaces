@@ -14,17 +14,10 @@ public class MainSteamAPI {
         // externalIterations(values);
 
         // Internal Iterations: manage the iterations in the background, can use with StreamAPI
-        // consumer interface
         values.forEach(i -> System.out.println(i));
 
-        //step by step
-        // anonymous class
-        Consumer<Integer> consumerInterface = new Consumer<Integer>() {
-            @Override
-            public void accept(Integer i) {
-                System.out.println(i);
-            }
-        };
+        // lambda expression
+        Consumer<Integer> consumerInterface = (Integer i) -> System.out.println(i);
 
         values.forEach(consumerInterface);
 
