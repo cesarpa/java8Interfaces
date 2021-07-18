@@ -17,6 +17,19 @@ public class MainSteamAPI {
         // lambda expression
         values.forEach(i -> System.out.println(i));
 
+        values.forEach(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) {
+                System.out.println(integer);
+                values.size();
+            }
+        });
+
+        values.forEach(
+                (Integer i) -> {
+                    System.out.println(i);
+                }
+        );
     }
 
     public static void externalIterations(List<Integer> values){
