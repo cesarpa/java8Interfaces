@@ -17,6 +17,12 @@ public class MainSteamAPI {
         // lambda expression
         values.forEach(i -> System.out.println(i));
 
+        values.forEach(System.out::println); // call by method reference
+
+        values.forEach(A.sp::doubleit);
+
+        values.forEach(MainSteamAPI::tripleIt);
+
         values.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
@@ -32,6 +38,14 @@ public class MainSteamAPI {
         );
     }
 
+    public static void tripleIt(int i) {
+        System.out.println(i*3);
+    }
+
+    public void doubleit(int i) {
+        System.out.println(i*2);
+    }
+
     public static void externalIterations(List<Integer> values){
         for (int i = 0; i < values.size(); i++) {
             System.out.println(values.get(i));
@@ -44,4 +58,9 @@ public class MainSteamAPI {
             System.out.println(value);
         }
     }
+
+}
+
+class A{
+    public static MainSteamAPI sp = new MainSteamAPI();
 }
