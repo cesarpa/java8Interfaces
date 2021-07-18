@@ -1,4 +1,4 @@
-package com.cesarpacode.java8.streamApi;
+package com.cesarpacode.java8.lamda;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -6,22 +6,13 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class MainSteamAPI {
-    // focus: what to do
-    // not focus:  how to do things
+
     public static void main(String[] args) {
         List<Integer> values = Arrays.asList(1, 2, 3, 4, 5);
-        // External Iterations: you fetch the data from the source Examples: fori iterator foreachloop
-        // externalIterations(values);
-
         // Internal Iterations: manage the iterations in the background, can use with StreamAPI
+        // focus: what to do
         // lambda expression
         values.forEach(i -> System.out.println(i));
-
-        values.forEach(System.out::println); // call by method reference
-
-        values.forEach(A.sp::doubleit);
-
-        values.forEach(MainSteamAPI::tripleIt);
 
         values.forEach(new Consumer<Integer>() {
             @Override
@@ -38,15 +29,10 @@ public class MainSteamAPI {
         );
     }
 
-    public static void tripleIt(int i) {
-        System.out.println(i*3);
-    }
+    public static void externalIterations(List<Integer> values) {
+        // External Iterations: you fetch the data from the source Examples: fori iterator foreachloop
 
-    public void doubleit(int i) {
-        System.out.println(i*2);
-    }
-
-    public static void externalIterations(List<Integer> values){
+        // focus:  how to do things
         for (int i = 0; i < values.size(); i++) {
             System.out.println(values.get(i));
         }
@@ -58,9 +44,4 @@ public class MainSteamAPI {
             System.out.println(value);
         }
     }
-
-}
-
-class A{
-    public static MainSteamAPI sp = new MainSteamAPI();
 }
