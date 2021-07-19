@@ -1,7 +1,5 @@
 package com.cesarpacode.java8.methodReference;
 
-import com.cesarpacode.java8.lamda.MainSteamAPI;
-
 import java.util.Arrays;
 import java.util.List;
 
