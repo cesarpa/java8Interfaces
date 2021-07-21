@@ -2,11 +2,13 @@ package com.cesarpacode.java8.streamApi;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class StreamAPIMain {
     public static void main(String[] args) {
-        List<Integer> values = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         Stream<Integer> s = values.stream();
         s.forEach(System.out::println);
@@ -16,7 +18,20 @@ public class StreamAPIMain {
             return true;
         }).findFirst();
 
+        // stream map reduce
+        System.out.println(values.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
 
+        // Step by Step
+        BinaryOperator<Integer> b = new BinaryOperator<Integer>() {
+            public Integer apply(Integer i, Integer j) {
+                return i + j;
+            }
+        };
+        Stream s1 = values.stream();
+        Function<Integer, Integer> f = (i -> i * 2);
+        Stream s2 = s1.map(f);
+        Integer result = (Integer) s2.reduce(0, b);
+        System.out.println(result);
     }
 
 }
