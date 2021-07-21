@@ -22,11 +22,19 @@ public class StreamAPIMain {
         System.out.println(values.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
 
         // Step by Step
+        BinaryOperator<Integer> b = new BinaryOperator<Integer>() {
+            public Integer apply(Integer i, Integer j) {
+                return i + j;
+            }
+        };
         Stream<Integer> s1 = values.stream();
         Function<Integer, Integer> f = (i -> i * 2);
-        Stream<Integer> s2 = s1.map(i -> i * 2);
-        Integer result = s2.reduce(0, (i, j) -> i + j);
+        Stream<Integer> s2 = s1.map(f);
+        Integer result = (Integer) s2.reduce(0, b);
         System.out.println(result);
+
+        // stream map reduce Completly reduced
+        System.out.println(values.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
     }
 
 }
