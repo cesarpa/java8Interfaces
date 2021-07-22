@@ -2,6 +2,7 @@ package com.cesarpacode.java8.streamApi;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class FilterReduce {
 
@@ -13,6 +14,12 @@ public class FilterReduce {
         System.out.println(result);
 
         // step by step
-        
+        Predicate<Integer> p = new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                return integer % 5 == 0;
+            }
+        };
+        System.out.println(values.stream().filter(p).reduce(0, (c, e) -> c + e));
     }
 }

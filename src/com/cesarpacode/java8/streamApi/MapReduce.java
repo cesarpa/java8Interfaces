@@ -22,19 +22,20 @@ public class MapReduce {
         System.out.println(values.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
 
         // Step by Step
+        Function<Integer, Integer> f = new Function<Integer, Integer>() {
+            @Override
+            public Integer apply(Integer integer) {
+                return integer * 2;
+            }
+        };
         BinaryOperator<Integer> b = new BinaryOperator<Integer>() {
             public Integer apply(Integer i, Integer j) {
                 return i + j;
             }
         };
         Stream<Integer> s1 = values.stream();
-        Function<Integer, Integer> f = (i -> i * 2);
         Stream<Integer> s2 = s1.map(f);
-        Integer result = (Integer) s2.reduce(0, b);
-        System.out.println(result);
-
-        // stream map reduce Completly reduced
-        System.out.println(values.stream().map(i -> i * 2).reduce(0, (c, e) -> c + e));
+        System.out.println(s2.reduce(0, b));
     }
 
 }
